@@ -5,16 +5,16 @@ using HostFurnitureReset.Patches;
 
 namespace HostFurnitureReset;
 
-[BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+[BepInPlugin(LCMPluginInfo.PLUGIN_GUID, LCMPluginInfo.PLUGIN_NAME, LCMPluginInfo.PLUGIN_VERSION)]
 public class Plugin : BaseUnityPlugin
 {
-    private readonly Harmony harmony = new(PluginInfo.PLUGIN_GUID);
+    private readonly Harmony harmony = new(LCMPluginInfo.PLUGIN_GUID);
     public static ManualLogSource Log;
 
     private void Awake()
     {
         // Plugin startup logic
-        Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
+        Logger.LogInfo($"Plugin {LCMPluginInfo.PLUGIN_GUID} is loaded!");
         Log = Logger;
 
         harmony.PatchAll(typeof(StartOfRoundPatch));
